@@ -28,5 +28,10 @@ namespace rsntdb.Data
         {
             return await Foods.FindAsync(id);
         }
+
+        public async Task<IEnumerable<Food>> GetAllFood()
+        {
+            return await Foods.ToListAsync<Food>();
+        }
     }
 }
