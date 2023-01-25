@@ -24,6 +24,10 @@ namespace rsntdb.Data
                 Foods = Foods.LoadFromMemory();
                 FoodToDTO();
             }
+            catch (FileNotFoundException ex)
+            {
+                Console.WriteLine(ex);
+            }
             catch (Exception ex)
             {
                 Console.WriteLine(ex);
@@ -35,11 +39,15 @@ namespace rsntdb.Data
             {
                 Cuisines = Cuisines.LoadFromMemory();
             }
+            catch (FileNotFoundException ex)
+            {
+                Console.WriteLine(ex);
+            }
             catch (Exception ex)
             {
                 Console.WriteLine(ex);
             }
-            
+
         }
         private void LoadCity()
         {
@@ -47,7 +55,7 @@ namespace rsntdb.Data
             {
                 Cities = Cities.LoadFromMemory();
             }
-            catch (Exception ex)
+            catch (FileNotFoundException ex)
             {
                 Console.WriteLine(ex);
                 /*
@@ -55,6 +63,10 @@ namespace rsntdb.Data
                 Cities.Add(new City(0, "Yorktown"));
                 Cities.SaveToMemory();
                 */
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
             }
         }
 
