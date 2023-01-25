@@ -3,9 +3,9 @@ using rsntdb.Models;
 
 namespace rsntdb.Data
 {
-    public class Context : DbContext, IContext
+    public class ContextSQL : DbContext, IContext
     {
-        public Context(DbContextOptions<Context> options) : base(options)
+        public ContextSQL(DbContextOptions<ContextSQL> options) : base(options)
         {
 
         }
@@ -32,6 +32,19 @@ namespace rsntdb.Data
         public async Task<IEnumerable<Food>> GetAllFood()
         {
             return await Foods.ToListAsync<Food>();
+        }
+
+        public async Task<bool> AddNewFood(Food food)
+        {
+            bool foodExists = Foods.Any(f => f.name == food.name);
+
+            if (foodExists) return false;
+            else
+            {
+                Foods.Add(food);
+                SaveChanges();
+                return true;
+            }
         }
     }
 }

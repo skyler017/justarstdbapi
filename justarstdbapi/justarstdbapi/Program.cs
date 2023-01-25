@@ -4,10 +4,10 @@ using rsntdb.Data;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-string connectionstring = @"C://.connectionStrings/.rsntdb.txt";
+string connectionstring = @"C://.connectionStrings/.rsntdb.txt"; // dead link, but will run with other file storage
 var connValue = File.ReadAllText(connectionstring);
-builder.Services.AddDbContext<Context>(opt => opt.UseSqlServer(connValue));
-builder.Services.AddScoped<IContext>(provider => provider.GetService<Context>());
+builder.Services.AddDbContext<ContextFiling>(opt => opt.UseSqlServer(connValue));
+builder.Services.AddScoped<IContext>(provider => provider.GetService<ContextFiling>());
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();

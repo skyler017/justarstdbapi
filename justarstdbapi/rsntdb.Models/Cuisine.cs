@@ -4,22 +4,20 @@ using System.Xml.Serialization;
 
 namespace rsntdb.Models
 {
-    [Table("food", Schema = "rsnt")]
-    public class Food
+    [Table("cuisine", Schema = "rsnt")]
+    public class Cuisine
     {
         [XmlAttribute]
-        [Key, Column("foodid")]
+        [Key, Column("cuisineid")]
         public int id { get; set; }
         public string name { get; set; }
-        public int cuisineid { get; set; }
 
-        public Food() { }
+        public Cuisine() { }
 
-        public Food(int id, string name, int cuisineid)
+        public Cuisine(int id, string name)
         {
             this.id = id;
             this.name = name;
-            this.cuisineid = cuisineid;
         }
     }
 }

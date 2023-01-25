@@ -3,11 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.2.32526.322
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "rsntdb.API", "justarstdbapi\rsntdb.API.csproj", "{BF9C7366-2BBB-444E-87FB-0219577E4276}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "rsntdb.API", "justarstdbapi\rsntdb.API.csproj", "{BF9C7366-2BBB-444E-87FB-0219577E4276}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "rsntdb.Data", "rsntdb.Data\rsntdb.Data.csproj", "{516CF255-4F0E-4B82-AE3F-093C9A78AE28}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "rsntdb.Data", "rsntdb.Data\rsntdb.Data.csproj", "{516CF255-4F0E-4B82-AE3F-093C9A78AE28}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "rsntdb.Models", "rsntdb.Models\rsntdb.Models.csproj", "{7BFC7DFB-DD84-4DBF-838F-2C33E9536259}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "rsntdb.Models", "rsntdb.Models\rsntdb.Models.csproj", "{7BFC7DFB-DD84-4DBF-838F-2C33E9536259}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "rsntdb.LocalStorage", "rsntdb.LocalStorage\rsntdb.LocalStorage.csproj", "{C9456E81-9073-48C1-94A0-C47F16394774}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{7BFC7DFB-DD84-4DBF-838F-2C33E9536259}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7BFC7DFB-DD84-4DBF-838F-2C33E9536259}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7BFC7DFB-DD84-4DBF-838F-2C33E9536259}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C9456E81-9073-48C1-94A0-C47F16394774}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C9456E81-9073-48C1-94A0-C47F16394774}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C9456E81-9073-48C1-94A0-C47F16394774}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C9456E81-9073-48C1-94A0-C47F16394774}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

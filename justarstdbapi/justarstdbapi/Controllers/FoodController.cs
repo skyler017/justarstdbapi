@@ -10,30 +10,32 @@ namespace rsntdb.API.Controllers
     [ApiController]
     public class FoodController : ControllerBase
     {
-        private readonly ILogger<FoodController> _logger;
         private readonly IContext _context;
 
-        public FoodController(IContext context, ILogger<FoodController> logger)
+        public FoodController(IContext context)
         {
             _context = context;
-            _logger = logger;
         }
 
-
-            // GET: api/<FoodController>
-            [HttpGet]
-        public IEnumerable<string> Get()
+        // GET: api/<FoodController>
+        [HttpGet]
+        public async Task<ActionResult<IEnumerable<FoodDTO>>> GetAll()
         {
-            return new string[] { "value1", "value2" };
+            IEnumerable<FoodDTO> foods = await _context.GetAllFood();
+
+            if (foods == null)
+            {
+                return NotFound();
+            }
+
+            return foods.ToList();
         }
 
-        // GET api/<FoodController>/5
-        [HttpGet("{id}")]
-        public async Task<ActionResult<Food>> GetOne(int id)
+        // GET api/<FoodController>/name
+        [HttpGet("{foodname}")]
+        public async Task<ActionResult<FoodDTO>> GetOne(string foodname)
         {
-            _logger.LogInformation("api/food/{id} triggered");
-
-            var item = await _context.GetFoodById(id);
+            var item = await _context.GetFoodByName(foodname);
 
             if (item == null) return NotFound();
 
@@ -42,20 +44,24 @@ namespace rsntdb.API.Controllers
 
         // POST api/<FoodController>
         [HttpPost]
-        public void Post([FromBody] string value)
+        public void Post([FromBody] FoodDTO f)
         {
+            _context.AddNewFood(f);
+        }
+/*
+        // PUT api/<FoodController>/name
+        [HttpPut("{foodname}")]
+        public void Put(string foodname, [FromBody] FoodDTO f)
+        {
+            _context.UpdateFood(foodname, f);
         }
 
-        // PUT api/<FoodController>/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        // DELETE api/<FoodController>/name
+        [HttpDelete("{foodname}")]
+        public void Delete(string foodname)
         {
+            _context.RemoveFood(foodname);
         }
-
-        // DELETE api/<FoodController>/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
-        }
+*/
     }
 }

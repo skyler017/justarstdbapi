@@ -7,15 +7,10 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="ContextSQL.cs" />
+    <PackageReference Include="System.Xml.XmlSerializer" Version="4.3.0" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.12" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\rsntdb.LocalStorage\rsntdb.LocalStorage.csproj" />
     <ProjectReference Include="..\rsntdb.Models\rsntdb.Models.csproj" />
   </ItemGroup>
 
